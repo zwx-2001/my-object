@@ -17,5 +17,15 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+//这就是路由导航，长见识了
+//to从哪里来
+//from到哪去(这里还没有用到)
+//next放行
+router.beforeEach((to, from, next) => {
+  if(to.path === '/login') return next();
+  const tokenStr = window.sessionStorage.getItem('token')
+  if(!tokenStr) return next('/login')
+  next() 
+})
 
 export default router

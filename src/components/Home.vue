@@ -6,7 +6,7 @@
       <img src="../assets/logo.png" alt="">
       <span>电商后台管理系统</span>
     </div>
-    <el-button type="info">退出</el-button>
+    <el-button type="info" @click="clear">退出</el-button>
   </el-header>
   <el-container>
     <el-aside width="200px">
@@ -36,6 +36,17 @@
 
 <script>
 export default {
+  data() {
+    return{
+
+    }
+  },
+  methods: {
+    clear() {
+      window.sessionStorage.clear()
+      this.$router.push('/login')
+    }
+  }
 
 }
 </script>

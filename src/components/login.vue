@@ -1,5 +1,5 @@
 <template>
-  <div class="login-container">
+  <div class="login-container" @keydown.enter="login">
     <div class="login-box">
       <div class="img-box">
         <img src="../assets/logo.png" alt="">
@@ -9,7 +9,7 @@
       <!--表单 --> 
         <el-form label-width="0px" class="form" :model="ruleForm" :rules="rules" ref="Form">
        <!--账号输入框-->
-          <el-form-item  prop="name">
+          <el-form-item  prop="username">
             <el-input prefix-icon="iconfont icon-zhanghao" v-model="ruleForm.name"></el-input>
           </el-form-item>
       <!--密码输入框-->
@@ -31,17 +31,17 @@ export default {
   data() {
     return{
       ruleForm: {
-        name: 'admin',
+        username: 'admin',
         password: '123456'
       },
       rules: {
-        name: [
+        username: [
             { required: true, message: '请输入活动名称', trigger: 'change' },
-            { min: 6, max: 10, message: '长度在 6 到 10 个字符', trigger: 'change' }
+            { min: 4, max: 6, message: '长度在 4 到 6 个字符', trigger: 'change' }
           ],
         password: [
             { required: true, message: '请输入密码', trigger: 'change' },
-            { min: 10, max: 15, message: '长度在 10 到 15 个字符', trigger: 'change' }
+            { min: 6, max: 10, message: '长度在 6 到 10 个字符', trigger: 'change' }
         ]
       }
     }
@@ -55,9 +55,20 @@ export default {
     login() {
       //表单预校验
       //validate函数，接收一个回调函数,返回一个布尔值
-      this.$refs.Form.validate((valid) => {
-        this.$http.post("login",this.ruleForm)
-          // if(valid) return this.$message.success('登录成功')
+      this.$refs.Form.validate(async valid => {
+        if(! valid) return
+        // const result = await this.$http.post('login',this.ruleForm) 
+        //接口赋值，将data赋值给res
+        const {data: res} = await this.$http.post('login',this.ruleForm) 
+        if(res.meta.status !== 200) {
+            this.$message.error('登录失败，请重试')  
+        }else{
+            this.$message.success('登录成功')
+            window.sessionStorage.setItem('token',res.data.token)
+            this.$router.push('/Home')
+            console.log(window.sessionStorage);
+        }
+                  // if(valid) return this.$message.success('登录成功')
        //需要访问后端接口返回数据
         
       })
