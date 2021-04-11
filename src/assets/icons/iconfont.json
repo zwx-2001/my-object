@@ -1,0 +1,114 @@
+{
+  "id": "2442982",
+  "name": "font",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "19104009",
+      "name": "首页-用户",
+      "font_class": "yonghu-fuben",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "4770737",
+      "name": "商品管理",
+      "font_class": "shangpinguanli",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "10164128",
+      "name": "权限管理",
+      "font_class": "quanxianguanli",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "11465013",
+      "name": "订单管理",
+      "font_class": "dingdanguanli",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "12771481",
+      "name": "用户管理",
+      "font_class": "yonghuguanli",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "14303369",
+      "name": "数据统计",
+      "font_class": "shujutongji",
+      "unicode": "e74e",
+      "unicode_decimal": 59214
+    },
+    {
+      "icon_id": "9559056",
+      "name": "右",
+      "font_class": "ziyuan1",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "9559051",
+      "name": "左",
+      "font_class": "ziyuan",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "6582266",
+      "name": "播放",
+      "font_class": "bofang",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "20829472",
+      "name": "播放",
+      "font_class": "bofang-copy",
+      "unicode": "e86f",
+      "unicode_decimal": 59503
+    },
+    {
+      "icon_id": "2076190",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e86e",
+      "unicode_decimal": 59502
+    },
+    {
+      "icon_id": "17814576",
+      "name": "锁",
+      "font_class": "suo1",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "5206477",
+      "name": "锁",
+      "font_class": "suo",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "15181603",
+      "name": "账号",
+      "font_class": "zhanghao",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "998485",
+      "name": "关闭",
+      "font_class": "ai68",
+      "unicode": "e6ba",
+      "unicode_decimal": 59066
+    }
+  ]
+}
