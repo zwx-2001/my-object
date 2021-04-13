@@ -163,25 +163,28 @@
     </el-dialog>
     <!--删除用户提示对话框-->
     <!-- 分配用户角色对话框 -->
-    <el-dialog title="提示" :visible.sync="roleDialogVisible" width="30%" @close="changeRoleDialogClose">
+    <el-dialog
+      title="提示"
+      :visible.sync="roleDialogVisible"
+      width="30%"
+      @close="changeRoleDialogClose"
+    >
       <div>
         <p>当前用户：{{ roleForm.username }}</p>
         <p>当前角色：{{ roleForm.role_name }}</p>
         <el-select v-model="checkedRoleId" placeholder="请选择">
           <el-option
-          v-for="item in roleList"
-          :key="item.id"
-          :value="item.id"
-          :label="item.roleName"
+            v-for="item in roleList"
+            :key="item.id"
+            :value="item.id"
+            :label="item.roleName"
           >
           </el-option>
         </el-select>
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button @click="roleDialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="changeRole()"
-          >确 定</el-button
-        >
+        <el-button type="primary" @click="changeRole()">确 定</el-button>
       </span>
     </el-dialog>
   </div>
@@ -222,7 +225,7 @@ export default {
       userDialogVisible: false,
       deleteDialogVisible: false,
       roleDialogVisible: false,
-      userId: '',
+      userId: "",
       addForm: {
         username: "",
         password: "",
@@ -239,7 +242,7 @@ export default {
       //角色列表
       roleList: [],
       //选定角色的id
-      checkedRoleId: '',
+      checkedRoleId: "",
       rules: {
         username: [
           { required: true, message: "请输入用户名", trigger: "blur" },
@@ -385,37 +388,39 @@ export default {
       }
     },
     //分配用户角色
-   async editRole(userInfo) {
+    async editRole(userInfo) {
       this.roleForm.username = userInfo.username;
       this.roleForm.role_name = userInfo.role_name;
-      this.userId = userInfo.id
+      this.userId = userInfo.id;
       //获取所有角色 roleList
-    const {data: res} =  await this.$http.get('roles')
-    if(res.meta.status !== 200) return this.$message.error(res.meta.msg)
-    this.roleList = res.data
-    console.log(this.roleList);
+      const { data: res } = await this.$http.get("roles");
+      if (res.meta.status !== 200) return this.$message.error(res.meta.msg);
+      this.roleList = res.data;
+      console.log(this.roleList);
       this.roleDialogVisible = true;
     },
- async changeRole() {
-    if(!this.checkedRoleId) {
-      return this.$message.error('还没有选择新的角色')
-    }
-   const{data: res} =  await this.$http.put(`users/` + this.userId + `/role`,{
-      rid: this.checkedRoleId
-    })
-    if(res.meta.status !== 200) {
-      return this.$message.error(res.meta.msg)
-    }
-    this.$message.success(res.meta.msg)
-    //设置角色成功，重新渲染页面
-    this.getUserList();
-    this.roleDialogVisible = false
-    //g
-  },
-  changeRoleDialogClose() {
-    this.checkedRoleId = ''
-  }
-
+    async changeRole() {
+      if (!this.checkedRoleId) {
+        return this.$message.error("还没有选择新的角色");
+      }
+      const { data: res } = await this.$http.put(
+        `users/` + this.userId + `/role`,
+        {
+          rid: this.checkedRoleId,
+        }
+      );
+      if (res.meta.status !== 200) {
+        return this.$message.error(res.meta.msg);
+      }
+      this.$message.success(res.meta.msg);
+      //设置角色成功，重新渲染页面
+      this.getUserList();
+      this.roleDialogVisible = false;
+      //g
+    },
+    changeRoleDialogClose() {
+      this.checkedRoleId = "";
+    },
   },
 };
 </script>
