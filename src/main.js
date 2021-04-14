@@ -10,6 +10,8 @@ import './assets/icons/iconfont';
 import './assets/css/global.css';
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
+//引入项目依赖
+import TableTree from 'vue-table-with-tree-grid'
 // axios.interceptors.request.use(config => {
 //   config.headers.Authorization = window.sessionStorage.getItem('token')
 //   return config
@@ -25,6 +27,7 @@ axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
 //axios请求拦截器
 
 Vue.use(ElementUI)
+Vue.component('tree-table',TableTree)
 
 new Vue({
   router,

@@ -95,7 +95,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped leng="less">
 .el-header {
   background-color: #373d41;
   padding-left: 0;
