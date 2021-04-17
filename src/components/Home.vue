@@ -80,7 +80,6 @@ export default {
       if(res.meta.status !== 200) this.$message.error('获取左侧菜单失败')
       this.$message.success('获取成功')
       this.menuList = res.data
-      console.log(res);
     },
     toggle() {
       this.temp = !this.temp
